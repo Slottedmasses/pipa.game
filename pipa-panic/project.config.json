@@ -1,0 +1,53 @@
+{
+  "description": "琵琶曲：一腚定音 —— 卡通打靶 × 肉鸽升级微信小游戏原型",
+  "packOptions": {
+    "ignore": [
+      {
+        "type": "folder",
+        "value": "docs"
+      },
+      {
+        "type": "file",
+        "value": "README.md"
+      },
+      {
+        "type": "file",
+        "value": "index.html"
+      },
+      {
+        "type": "folder",
+        "value": "refs"
+      },
+      {
+        "type": "folder",
+        "value": "tools"
+      }
+    ]
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": false,
+    "minifyWXSS": false,
+    "minifyWXML": false,
+    "showShadowRootInWxmlPanel": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "compileType": "game",
+  "libVersion": "3.5.7",
+  "appid": "touristappid",
+  "projectname": "pipa-panic",
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

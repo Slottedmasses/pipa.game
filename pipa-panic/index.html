@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0508" />
+  <title>琵琶曲：一腚定音</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      width: 100%; height: 100%; margin: 0; padding: 0;
+      overflow: hidden; background: #080507;
+      overscroll-behavior: none;
+      -webkit-user-select: none; user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      display: flex; align-items: center; justify-content: center;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(104, 24, 30, .35), transparent 55%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,.012) 0 2px, transparent 2px 7px),
+        #080507;
+    }
+    #game {
+      display: block;
+      width: 100vw; height: 100vh;
+      touch-action: none;
+      cursor: crosshair;
+      outline: none;
+    }
+    #boot-fallback {
+      position: fixed; inset: 0; display: none;
+      align-items: center; justify-content: center;
+      color: #f3d7a0; font: 14px/1.7 "PingFang SC", "Microsoft YaHei", sans-serif;
+      text-align: center; padding: 30px; background: #0b0508;
+    }
+    #error-layer {
+      position: fixed; left: 8px; right: 8px; bottom: 8px; z-index: 20;
+      display: none; padding: 10px 12px; border: 1px solid rgba(255, 100, 80, .55);
+      border-radius: 8px; background: rgba(25, 5, 8, .92);
+      color: #ffb4a8; font: 11px/1.5 Consolas, monospace; white-space: pre-wrap;
+    }
+    @media (min-width: 700px) {
+      #game {
+        width: min(100vw, 470px);
+        height: min(100vh, 1017px);
+        border-radius: 18px;
+        box-shadow: 0 30px 100px rgba(0,0,0,.75), 0 0 0 1px rgba(220, 170, 100, .14);
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="game"></canvas>
+  <div id="boot-fallback">正在调弦……<br />如果长时间没有画面，请用本地服务器打开本页。</div>
+  <div id="error-layer"></div>
+  <script>
+    window.addEventListener('error', function (e) {
+      var el = document.getElementById('error-layer');
+      if (!el) return;
+      el.style.display = 'block';
+      el.textContent = 'SCRIPT ERROR\n' + (e.message || e) + '\n' + (e.filename || '') + ':' + (e.lineno || '');
+    });
+  </script>
+  <script src="game.js"></script>
+</body>
+</html>
